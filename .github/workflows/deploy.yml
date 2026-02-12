@@ -1,0 +1,24 @@
+
+name: Build and Deploy flask app
+
+on:
+  push:
+     braches:
+        - main #or in below mention manual trigger
+     #branch: [main]
+  workflow_dispatch: #Adds a "Run workflow" button in GitHub UI
+
+jobs:
+     build: OS
+       runs-on: ubuntu-latest
+
+       steps:
+          -name: Checkout code
+           uses: actions/checkout@v4
+
+          -name: Build Docker image
+           run: docker build -t flask-app:latest .
+
+          -name: Test docker image
+           run: docker images
+
