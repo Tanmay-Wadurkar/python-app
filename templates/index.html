@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hey, It's your Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        table {
+            margin-top: 30px;
+            background: white;
+            width: 400px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Add User Detials</h2>
+
+<form method="POST" action="/add">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Save</button>
+</form>
+
+<h2>Saved Users</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
